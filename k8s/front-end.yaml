@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delivery-nextjs-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: delivery-nextjs-app
+  template:
+    metadata:
+      labels:
+        app: delivery-nextjs-app
+    spec:
+      containers:
+        - name: delivery-nextjs-app
+          image: martinhodges/my-nextjs-app-img:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000

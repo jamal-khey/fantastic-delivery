@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-cloud-deploy
+  labels:
+    app: ecommerce-cloud
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ecommerce-cloud
+  template:
+    metadata:
+      labels:
+        app: ecommerce-cloud
+    spec:
+      containers:
+        - name: ecommerce-cloud-container
+          image: ecommerce/ecommerce:0.0.1-SNAPSHOT # should be adapted
